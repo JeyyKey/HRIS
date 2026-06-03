@@ -1,0 +1,78 @@
+<!-- ====================================== -->
+<!-- SHARED SIDEBAR TEMPLATE -->
+<!-- Copy this HTML into each module page -->
+<!-- Add this CSS link in your <head> section: -->
+<!-- <link rel="stylesheet" href="../Dashboard/sidebar.css"> -->
+<!-- Add this JS link before closing </body> tag: -->
+<!-- <script src="../sidebarEmp.js"></script> -->
+<!-- ====================================== -->
+
+<!-- Mobile Toggle Button -->
+<button class="mobile-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar" id="sidebar">
+    <!-- Logo Section -->
+    <div class="logo-section">
+        <img src="../../logo.png" alt="Company Logo" style="width: 200px; height: 50px;"> 
+    </div>
+
+    <!-- Navigation Menu -->
+    <ul class="nav-menu">
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('home')">
+                <span class="nav-icon"><i class="fas fa-home"></i></span>
+                <span class="nav-text">Home</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('attendance')">
+                <span class="nav-icon"><i class="fas fa-clock"></i></span>
+                <span class="nav-text">Attendance</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('leave')">
+                <span class="nav-icon"><i class="fas fa-calendar-alt"></i></span>
+                <span class="nav-text">Leave Request</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('profile')">
+                <span class="nav-icon"><i class="fas fa-user"></i></span>
+                <span class="nav-text">Profile</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('payroll')">
+                <span class="nav-icon"><i class="fas fa-dollar-sign"></i></span>
+                <span class="nav-text">Payroll</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('incentive')">
+                <span class="nav-icon"><i class="fas fa-gift"></i></span>
+                <span class="nav-text">Incentive</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="showPage('settings')">
+                <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                <span class="nav-text">Settings</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Logout Section -->
+    <div class="logout-section">
+        <a class="logout-link" onclick="confirmLogout()">
+            <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+            <span class="nav-text">Log Out</span>
+        </a>
+    </div>
+</nav>
+
+<!-- Overlay for mobile -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>

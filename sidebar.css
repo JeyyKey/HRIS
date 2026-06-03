@@ -1,0 +1,341 @@
+/* ====================================== */
+/* SHARED SIDEBAR CSS */
+/* Save as: /Admin/Dashboard/sidebar.css */
+/* ====================================== */
+
+/* Mobile Toggle Button */
+.mobile-toggle {
+    display: none; /* Hidden by default on desktop */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 10002; /* Higher than modal overlay to ensure visibility */
+    background: #0B4597;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(11, 69, 151, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Show toggle button on mobile */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
+}
+
+.mobile-toggle:hover {
+    background: #083472;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(11, 69, 151, 0.4);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    overflow-y: auto;
+    z-index: 10001; /* Higher than modal overlay to stay visible */
+    transition: transform 0.3s ease;
+    padding: 20px 0;
+    transform: translateX(0); /* Show by default on desktop */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Hide sidebar on mobile by default */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px; /* Ensure consistent width */
+    }
+}
+
+.sidebar.visible {
+    transform: translateX(0) !important;
+    width: 280px !important; /* Ensure full width is maintained */
+    z-index: 10001 !important; /* Higher than modal overlay to stay visible */
+    display: block !important; /* Ensure sidebar is displayed */
+    visibility: visible !important; /* Ensure sidebar is visible */
+}
+
+/* Ensure sidebar content is visible when sidebar is open */
+.sidebar.visible * {
+    visibility: visible !important;
+}
+
+/* Force sidebar to be fully visible on mobile when toggled */
+@media (max-width: 768px) {
+    .sidebar.visible {
+        transform: translateX(0) !important;
+        width: 280px !important;
+        max-width: 280px !important;
+        min-width: 280px !important;
+    }
+}
+
+/* Logo Section */
+.sidebar .logo-section {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Navigation Menu */
+.sidebar .nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 5px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e9ecef;
+    padding-left: 25px;
+}
+
+.sidebar .nav-link.active {
+    background-color: #0B4597;
+    color: white;
+    border-right: 3px solid #083472;
+}
+
+.sidebar .nav-link.active:hover {
+    background-color: #083472;
+    padding-left: 20px;
+}
+
+.sidebar .nav-icon {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.sidebar .nav-text {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Theme Section */
+.sidebar .theme-section {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #dee2e6;
+    padding: 0;
+}
+
+.sidebar .theme-toggle {
+    display: flex;
+    align-items: center;
+    padding: 6px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    border: none;
+    width: 100%;
+    text-align: left;
+    color: #495057;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+.sidebar .theme-toggle:hover {
+    background: #e9ecef;
+    color: #0B4597;
+}
+
+.sidebar .theme-toggle .nav-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 16px;
+    text-align: center;
+}
+
+.sidebar .theme-toggle .nav-text {
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* Logout Section */
+.sidebar .logout-section {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #dee2e6;
+    padding-top: 5px;
+}
+
+.sidebar .logout-link {
+    display: flex;
+    align-items: center;
+    padding: 6px 15px;
+    color: #dc3545;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 13px;
+}
+
+.sidebar .logout-link:hover {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.sidebar .logout-link .nav-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    width: 16px;
+    text-align: center;
+}
+
+/* Overlay for Mobile */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Main Content Responsive Styles */
+.main-content {
+    margin-left: 280px; /* Default: Account for sidebar width on desktop */
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* When sidebar is closed on mobile, content takes full width */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Full width on mobile */
+    }
+}
+
+/* Dashboard content specific styles */
+.dashboard-content {
+    margin-left: 280px; /* Account for sidebar width */
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        margin-left: 0; /* Full width on mobile */
+    }
+}
+
+/* Container content specific styles */
+.container {
+    margin-left: 280px; /* Account for sidebar width */
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0; /* Full width on mobile */
+    }
+}
+
+/* Additional wrapper classes for comprehensive coverage */
+.page-wrapper,
+.content-wrapper,
+.app-content {
+    margin-left: 280px; /* Account for sidebar width */
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .page-wrapper,
+    .content-wrapper,
+    .app-content {
+        margin-left: 0; /* Full width on mobile */
+    }
+}
+
+/* Body adjustments when sidebar is used */
+body.sidebar-enabled {
+    padding-top: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 250px;
+    }
+    
+    .sidebar .nav-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .sidebar .nav-icon {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+    
+    .sidebar .nav-text {
+        font-size: 14px;
+    }
+}
